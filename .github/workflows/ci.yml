@@ -2,25 +2,27 @@ name: Run Ruff Linter
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - "**"
   pull_request:
-    branches: [ main ]
+    branches:
+      - "**"
 
 jobs:
   lint:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
-      - name: Install ruff
+      - name: Install Ruff
         run: pip install ruff
 
-      - name: Run ruff linter
-        run: ruff git/src
+      - name: Run Ruff Linter
+        run: ruff check . --output-format=github
