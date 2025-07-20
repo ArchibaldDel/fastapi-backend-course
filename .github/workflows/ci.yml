@@ -3,10 +3,10 @@ name: Run Ruff Linter
 on:
   push:
     branches:
-      - "**"
+      - "**"  # Проверка на push в любые ветки
   pull_request:
     branches:
-      - "**"
+      - "**"  # Проверка на PR в любые ветки
 
 jobs:
   lint:
